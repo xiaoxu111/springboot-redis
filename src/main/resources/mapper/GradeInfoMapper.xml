@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!--namespace  填写的是dao层所对应的接口全限定类名-->
+<mapper namespace="com.aliwo.dao.GradeInfoDao">
+    <resultMap id="baseResultMap" type="com.aliwo.entity.GradeInfo">
+        <id column="id" property="id"/>
+        <result column="grade_no" property="gradeNo"/>
+        <result column="grade_name" property="gradeName"/>
+    </resultMap>
+
+    <insert id="insertGradeInfo" parameterType="com.aliwo.entity.GradeInfo" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+        insert into yc_grade_info (grade_no, grade_name) values (#{gradeNo}, #{gradeName});
+    </insert>
+
+</mapper>
