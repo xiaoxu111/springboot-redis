@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!--namespace  填写的是dao层所对应的接口全限定类名-->
+<mapper namespace="com.aliwo.dao.StudentDao">
+    <resultMap id="BaseResultMap" type="com.aliwo.entity.Student">
+        <id column="id" property="id"/>
+        <result column="student_no" property="studentNo"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="realname" property="realname"/>
+        <result column="grade" property="grade"/>
+        <result column="class_no" property="classNo"/>
+        <result column="age" property="age"/>
+        <result column="address" property="address"/>
+        <result column="telephone" property="telephone"/>
+        <result column="avatar" property="avatar"/>
+        <result column="description" property="description"/>
+        <result column="email" property="email"/>
+        <result column="deleted" property="deleted"/>
+        <result column="status" property="status"/>
+        <result column="user_type" property="userType"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
+    <sql id="baseColumn">
+        id
+        , student_no, username, password, realname, grade, class_no, age, address
+        , telephone, avatar, description, email, deleted, user_type, status, create_time, update_time
+    </sql>
+
+    <insert id="insertStudent" parameterType="com.aliwo.entity.Student">
+        insert into yc_student (student_no, username, password, realname, age) values (#{studentNo}
+        , #{username}, #{password}, #{realname}, #{age})
+    </insert>
+
+ <select id="findStudentsBelowAge" parameterType="int" resultType="com.aliwo.entity.Student">
+     select
+        <include refid="baseColumn"/>
+        from yc_student
+        where age &lt; #{age};
+ </select>
+
+    <select id="countStudent" resultType="int">
+        select count(*) from yc_student;
+    </select>
+</mapper>

@@ -11,6 +11,6 @@
     <title>Title</title>
 </head>
 <body>
-    您好 ${gradeInfo}
+您好 ${gradeInfo}
 </body>
 </html>

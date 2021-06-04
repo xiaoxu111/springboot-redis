@@ -55,7 +55,6 @@ public class GradeInfoController {
      * @author xuyayuan
      * @date 2021/6/2 14:06
      */
-    @Transactional
     @RequestMapping(value = "/insert", method = RequestMethod.POST)
     public String insertGradeInfo(GradeInfo gradeInfo, Model model) throws Exception {
         gradeInfo.setGradeName(gradeInfo.getGradeName());
