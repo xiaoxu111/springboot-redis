@@ -1,9 +1,9 @@
 package com.aliwo.entity;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -11,6 +11,7 @@ import java.util.Date;
  * @data 2021年06月04日
  */
 @Data
+@NoArgsConstructor
 public class Student implements Serializable {
     private Integer id;
     private String studentNo;
@@ -30,4 +31,13 @@ public class Student implements Serializable {
     private Integer status;
     private Date createTime;
     private Date updateTime;
+
+    public Student(Integer id, String studentNo, String username, String password, String realname, Integer age) {
+        this.id = id;
+        this.studentNo = studentNo;
+        this.username = username;
+        this.password = password;
+        this.realname = realname;
+        this.age = age;
+    }
 }
